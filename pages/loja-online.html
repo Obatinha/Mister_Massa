@@ -1,0 +1,239 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister Massa - Loja Online (Em Breve)</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="/assets/images/icone.png" type="image/x-icon">
+</head>
+<body>
+    <header class="header">
+    <div class="header-logo"></div>
+    
+    <!-- Botão Hamburguer -->
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Navegação -->
+    <nav class="header-nav">
+        <a href="../index.html">Início</a>
+        <a href="saiba-mais.html">Saiba Mais</a>
+        <a href="restaurantes.html">Restaurantes</a>
+        <a href="loja-online.html">Loja Online</a>
+        <a href="index-empresas.html">Empresas</a>
+        <a href="perfil.html">Perfil</a>
+    </nav>
+</header>
+    
+    <div class="loja-online-container">
+        <h1>LOJA ONLINE</h1>
+        <p>Estamos preparando algo especial para você! Em breve nossa loja online estará disponível com todas as deliciosas massas da Mister Massa direto na sua casa.</p>
+        
+        <!-- Ícones animados -->
+        <div class="icones-animados">
+            <div class="icone-animado">🛒</div>
+            <div class="icone-animado">🚚</div>
+            <div class="icone-animado">🎁</div>
+            <div class="icone-animado">🍝</div>
+        </div>
+        
+        <!-- Contador (opcional - pode ser ativado com JavaScript depois) -->
+        <div class="contador-lancamento">
+            <h2>LANÇAMENTO EM BREVE</h2>
+            <div class="contador">
+                <div class="contador-item">
+                    <div class="contador-numero">00</div>
+                    <div class="contador-label">Dias</div>
+                </div>
+                <div class="contador-item">
+                    <div class="contador-numero">00</div>
+                    <div class="contador-label">Horas</div>
+                </div>
+                <div class="contador-item">
+                    <div class="contador-numero">00</div>
+                    <div class="contador-label">Minutos</div>
+                </div>
+                <div class="contador-item">
+                    <div class="contador-numero">00</div>
+                    <div class="contador-label">Segundos</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulário de pré-cadastro -->
+        <div class="formulario-pre-cadastro">
+            <h3>Seja o Primeiro a Saber!</h3>
+            <p>Cadastre-se para receber notificações do lançamento e ganhe 15% de desconto na primeira compra!</p>
+            
+            <form id="formPreCadastro">
+                <div class="grupo-formulario">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                
+                <button type="submit" class="botao-pre-cadastro">
+                    Quero Ser Avisado!
+                </button>
+            </form>
+        </div>
+        
+        <p style="font-size: 1.2rem; color: var(--cinza-medio); margin-top: 40px;">
+            Fique atento às nossas redes sociais para mais novidades!
+        </p>
+    </div>
+    
+      <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h2 class="footer-title">Mister Massa</h2>
+            <p class="footer-description">Massas artesanais feitas com qualidade e sabor.</p>
+        </div>
+
+        <nav class="footer-links">
+            <ul>
+                <li><a href="/pages/saiba-mais.html">Sobre Nós</a></li>
+                <li><a href="/pages/contato.html">Contato</a></li>
+                <li><a href="/pages/index-empresas.html">Nossos Parceiros</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Mister Massa. Todos os direitos reservados.</p>
+    </div>
+</footer>
+    
+    <!-- JavaScript simples para o formulário -->
+    <script>
+        document.getElementById('formPreCadastro').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Te avisaremos quando a loja estiver no ar.');
+            this.reset();
+        });
+        
+        // Contador simulado (pode ser substituído por data real)
+        function atualizarContador() {
+            // Exemplo - substitua por data real do lançamento
+            const lancamento = new Date('2024-12-31T23:59:59').getTime();
+            const agora = new Date().getTime();
+            const diferenca = lancamento - agora;
+            
+            if (diferenca > 0) {
+                const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+                
+                // Atualiza elementos (se existirem)
+                const elementos = document.querySelectorAll('.contador-numero');
+                if (elementos.length >= 4) {
+                    elementos[0].textContent = dias.toString().padStart(2, '0');
+                    elementos[1].textContent = horas.toString().padStart(2, '0');
+                    elementos[2].textContent = minutos.toString().padStart(2, '0');
+                    elementos[3].textContent = segundos.toString().padStart(2, '0');
+                }
+            }
+        }
+        
+        // Inicia contador se a seção existir
+        if (document.querySelector('.contador-lancamento')) {
+            setInterval(atualizarContador, 1000);
+            atualizarContador();
+        }
+    </script>
+    <script>
+// Menu Hamburguer Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerNav = document.querySelector('.header-nav');
+    const menuOverlay = document.createElement('div');
+    
+    // Criar overlay
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
+    
+    // Adicionar ícones aos links
+    const navLinks = headerNav.querySelectorAll('a');
+    const icons = ['🏠', 'ℹ️', '📍', '🛒', '🏢', '📞', '👤'];
+    
+    navLinks.forEach((link, index) => {
+        link.setAttribute('data-icon', icons[index] || '🔗');
+    });
+    
+    // Toggle menu
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        headerNav.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Fechar menu ao clicar no overlay
+    menuOverlay.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        headerNav.classList.remove('active');
+        this.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    });
+    
+    // Fechar menu ao clicar em um link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Efeito de scroll no header
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Fechar menu ao redimensionar a janela (se necessário)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+});
+</script>
+</body>
+</html>
