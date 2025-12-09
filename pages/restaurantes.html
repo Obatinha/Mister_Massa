@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister Massa</title>
+    <link rel="stylesheet" href="/styles/index.css">
+        <link rel="shortcut icon" href="/assets/images/icone.png" type="image/x-icon">
+</head>
+<div>
+    <header class="header">
+    <div class="header-logo"></div>
+    
+    <!-- Botão Hamburguer -->
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Navegação -->
+    <nav class="header-nav">
+        <a href="../index.html">Início</a>
+        <a href="saiba-mais.html">Saiba Mais</a>
+        <a href="restaurantes.html">Restaurantes</a>
+        <a href="cardapio.html">Cardápio</a>
+        <a href="loja-online.html">Loja Online</a>
+        <a href="index-empresas.html">Empresas</a>
+        <a href="perfil.html">Perfil</a>
+    </nav>
+</header>
+        <div class="restaurantes-container">
+            <div class="restaurantes-titulo">Nossos Restaurantes</div>
+            <div class="restaurantes-contexto">
+                <p>
+                    Conheça nossos restaurantes e venha viver uma experiência gastronômica única!
+                    Em cada um de nossos estabelecimentos, você encontrará um ambiente acolhedor,
+                    atendimento personalizado e, claro, as deliciosas massas frescas da Mister Massa.
+                    Nossos chefs estão prontos para ajudar você a criar a massa dos seus sonhos,
+                    com ingredientes frescos e total personalização. Visite-nos e descubra o sabor
+                    da criatividade em cada prato!
+                </p>
+            </div>
+            <div class="restaurantes-imagem-fundo">
+                <!-- ESTA DIV PRECISA DE UMA IMAGEM DE FUNDO NO CSS -->
+                <div class="restaurantes-imagem-fundo-texto">
+                    <h2>Venha nos visitar!</h2>
+                    <p>Estamos ansiosos para recebê-lo em um de nossos restaurantes e proporcionar
+                    uma experiência gastronômica inesquecível.</p>
+                </div>
+            </div>
+            <div class="restaurantes-cards">
+                <a href="restaurantes-pages/fazendinha.html"><div class="restaurantes-card">
+                    <h1>Mister Massa Fazendinha</h1>
+                    <p>Endereço: R. Alagoas, 150 - Jardim Diva (Fazendinha), Santana de Parnaíba - SP</p>
+                    <p>Telefone: (11) 4002-8922</p>
+                </div></a>
+                <a href="restaurantes-pages/cajamar.html"><div class="restaurantes-card">
+                    <h1>Mister Massa Cajamar</h1>
+                    <p>Endereço: R. Jean Anastace Kovelis, 123 - Ipês (Polvilho), Cajamar - SP</p>
+                    <p>Telefone: (11) 1111-2222</p>
+                </div></a>
+                <a href="restaurantes-pages/tambore.html"><div class="restaurantes-card">
+                    <h1>Mister Massa Tamboré</h1>
+                    <p>Endereço: Alameda Araguaia, 2110 - Tamboré, Barueri - SP</p>
+                    <p>Telefone: (11) 1234-5678</p>
+                </div></a>
+            </div>
+            <div class="restaurantes-online">
+                <p>Não pode visitar um de nossos restaurantes no momento? Sem problemas!
+                Oferecemos a conveniência de pedidos online para que você possa desfrutar
+                das nossas deliciosas massas no conforto da sua casa. Basta acessar nosso
+                sistema de pedidos online, escolher seus pratos favoritos e aguardar a
+                entrega rápida e segura diretamente na sua porta. Experimente a praticidade
+                e o sabor da Mister Massa onde quer que você esteja!</p>
+                <a href="loja-online.html" class="restaurantes-online-link">Peça Online Agora!</a>
+            </div>
+        </div>
+</div>
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h2 class="footer-title">Mister Massa</h2>
+            <p class="footer-description">Massas artesanais feitas com qualidade e sabor.</p>
+        </div>
+
+        <nav class="footer-links">
+            <ul>
+                <li><a href="/pages/saiba-mais.html">Sobre Nós</a></li>
+                <li><a href="/pages/contato.html">Contato</a></li>
+                <li><a href="/pages/index-empresas.html">Nossos Parceiros</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Mister Massa. Todos os direitos reservados.</p>
+    </div>
+    <script>
+// Menu Hamburguer Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerNav = document.querySelector('.header-nav');
+    const menuOverlay = document.createElement('div');
+    
+    // Criar overlay
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
+    
+    // Adicionar ícones aos links
+    const navLinks = headerNav.querySelectorAll('a');
+    const icons = ['🏠', 'ℹ️', '📍', '🛒', '🏢', '📞', '👤'];
+    
+    navLinks.forEach((link, index) => {
+        link.setAttribute('data-icon', icons[index] || '🔗');
+    });
+    
+    // Toggle menu
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        headerNav.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    
+    // Fechar menu ao clicar no overlay
+    menuOverlay.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        headerNav.classList.remove('active');
+        this.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    });
+    
+    // Fechar menu ao clicar em um link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Efeito de scroll no header
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Fechar menu ao pressionar ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+    
+    // Fechar menu ao redimensionar a janela (se necessário)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            menuToggle.classList.remove('active');
+            headerNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+});
+</script>
+</footer>
+</body>
+</html>
